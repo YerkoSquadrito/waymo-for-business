@@ -1,16 +1,46 @@
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
+import Landing from './routes/landing';
+import AppLayout from './routes/app/layout';
+import Home from './routes/app/home';
+import Book from './routes/app/book';
+import Account from './routes/app/account';
+import Vehicles from './routes/app/vehicles';
+import BusinessHub from './routes/app/business';
+import Connect from './routes/app/business/connect';
+import Calendar from './routes/app/business/calendar';
+import Commute from './routes/app/business/commute';
+import Confirm from './routes/app/business/confirm';
+
+const router = createBrowserRouter([
+  { path: '/', element: <Landing /> },
+  {
+    path: '/app',
+    element: <AppLayout />,
+    children: [
+      { index: true, element: <Navigate to="/app/home" replace /> },
+      { path: 'home', element: <Home /> },
+      { path: 'book', element: <Book /> },
+      { path: 'vehicles', element: <Vehicles /> },
+      { path: 'account', element: <Account /> },
+      {
+        path: 'business',
+        children: [
+          { index: true, element: <BusinessHub /> },
+          { path: 'connect', element: <Connect /> },
+          { path: 'calendar', element: <Calendar /> },
+          { path: 'commute', element: <Commute /> },
+          { path: 'confirm', element: <Confirm /> },
+        ],
+      },
+    ],
+  },
+  { path: '*', element: <Navigate to="/" replace /> },
+]);
+
 export default function App() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-container-padding">
-      <div className="max-w-mobile rounded-2xl bg-surface-container-lowest p-margin-lg shadow-card">
-        <p className="font-label-bold uppercase text-primary">Bootstrapping</p>
-        <h1 className="mt-2 text-headline-lg text-on-surface">
-          Waymo for Business
-        </h1>
-        <p className="mt-4 text-body-md text-on-surface-variant">
-          Toolchain online. Mobile shell, component kit, and Business flows ship
-          next.
-        </p>
-      </div>
-    </main>
-  );
+  return <RouterProvider router={router} />;
 }
