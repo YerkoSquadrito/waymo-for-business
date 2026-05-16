@@ -1,0 +1,46 @@
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-sans antialiased;
+    min-height: 100dvh;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Glass surface — only sensible over a map. Solid fallback for browsers
+     without backdrop-filter support. */
+  .glass-card {
+    background: rgb(var(--color-surface-container-lowest) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--color-surface-container-lowest) / 0.4);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .glass-card {
+      background: rgb(var(--color-surface-container-lowest));
+    }
+  }
+}
