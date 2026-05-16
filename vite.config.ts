@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.svg', 'icon.svg'],
       manifest: {
         name: 'Waymo for Business',
         short_name: 'Waymo Biz',
@@ -17,16 +17,17 @@ export default defineConfig({
         background_color: '#f7f9fb',
         display: 'standalone',
         start_url: '/app/home',
+        scope: '/',
         icons: [
           {
-            src: '/icon-512.png',
-            sizes: '512x512',
-            type: 'image/png',
+            src: '/icon.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
           },
           {
-            src: '/icon-512.png',
-            sizes: '512x512',
-            type: 'image/png',
+            src: '/icon.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
             purpose: 'maskable',
           },
         ],
