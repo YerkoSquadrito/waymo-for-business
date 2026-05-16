@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waymo for Business - Your Weekly Commute</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed-dim": "#bec6e0",
+                  "surface-dim": "#d8dadc",
+                  "on-error-container": "#93000a",
+                  "inverse-surface": "#2d3133",
+                  "inverse-primary": "#adc6ff",
+                  "on-secondary": "#ffffff",
+                  "inverse-on-surface": "#eff1f3",
+                  "on-primary": "#ffffff",
+                  "on-primary-fixed-variant": "#004493",
+                  "on-background": "#191c1e",
+                  "surface-container-low": "#f2f4f6",
+                  "primary": "#0058bc",
+                  "surface": "#f7f9fb",
+                  "error-container": "#ffdad6",
+                  "tertiary-container": "#00855b",
+                  "outline": "#717786",
+                  "error": "#ba1a1a",
+                  "surface-container": "#eceef0",
+                  "surface-container-highest": "#e0e3e5",
+                  "on-primary-container": "#fefcff",
+                  "secondary-container": "#dae2fd",
+                  "on-surface-variant": "#414755",
+                  "on-tertiary-fixed": "#002113",
+                  "on-secondary-fixed-variant": "#3f465c",
+                  "on-primary-fixed": "#001a41",
+                  "on-secondary-fixed": "#131b2e",
+                  "surface-variant": "#e0e3e5",
+                  "background": "#f7f9fb",
+                  "primary-fixed": "#d8e2ff",
+                  "on-tertiary-container": "#f5fff6",
+                  "primary-container": "#0070eb",
+                  "tertiary-fixed-dim": "#4edea3",
+                  "on-error": "#ffffff",
+                  "secondary-fixed": "#dae2fd",
+                  "outline-variant": "#c1c6d7",
+                  "on-tertiary-fixed-variant": "#005236",
+                  "surface-tint": "#005bc1",
+                  "on-secondary-container": "#5c647a",
+                  "on-tertiary": "#ffffff",
+                  "tertiary": "#006947",
+                  "surface-container-lowest": "#ffffff",
+                  "primary-fixed-dim": "#adc6ff",
+                  "tertiary-fixed": "#6ffbbe",
+                  "surface-bright": "#f7f9fb",
+                  "secondary": "#565e74",
+                  "surface-container-high": "#e6e8ea",
+                  "on-surface": "#191c1e"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-sm": "16px",
+                  "container-padding": "24px",
+                  "unit": "8px",
+                  "gutter": "16px",
+                  "margin-lg": "32px"
+          },
+          "fontFamily": {
+                  "body-md": ["Plus Jakarta Sans"],
+                  "body-sm": ["Plus Jakarta Sans"],
+                  "headline-lg": ["Plus Jakarta Sans"],
+                  "display": ["Plus Jakarta Sans"],
+                  "headline-lg-mobile": ["Plus Jakarta Sans"],
+                  "label-bold": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center px-margin-sm h-16 w-full fixed top-0 z-50 bg-surface">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+<h1 class="font-display text-headline-lg-mobile font-bold text-primary">Waymo for Business</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</div>
+</header>
+<main class="pt-20 px-6 max-w-lg mx-auto">
+<!-- Header Section -->
+<section class="mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-1">Your Weekly Commute</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Suggested times based on your calendar.</p>
+</section>
+<!-- Calendar Sync Status Card -->
+<div class="bg-surface-container-low rounded-xl p-4 mb-8 flex items-center gap-4 border border-outline-variant/30">
+<div class="bg-primary-fixed p-3 rounded-full">
+<span class="material-symbols-outlined text-on-primary-fixed">calendar_today</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-primary uppercase">Calendar Synced</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Updated 2 mins ago from Google Workspace</p>
+</div>
+</div>
+<!-- Daily Commute Slots (Bento Style) -->
+<div class="space-y-4">
+<!-- Monday Slot -->
+<div class="glass-card rounded-2xl p-5 shadow-[0px_8px_24px_rgba(0,0,0,0.04)] relative overflow-hidden border-l-4 border-l-secondary">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Monday</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Commute to HQ</p>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            SUGGESTED
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl font-label-bold text-label-bold transition-transform active:scale-95">
+            9:15 AM
+          </button>
+<span class="font-body-sm text-body-sm text-tertiary font-semibold">Post-Rush Hour</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-on-tertiary-fixed-variant bg-tertiary-fixed/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">laptop_mac</span>
+<p class="font-body-sm text-body-sm italic">Perfect for deep work</p>
+</div>
+</div>
+<!-- Tuesday Slot -->
+<div class="bg-surface-container-lowest rounded-2xl p-5 shadow-[0px_8px_24px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface opacity-60">Tuesday</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Working from home</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<p class="font-body-md text-body-md text-on-surface-variant/50">No commute scheduled</p>
+<button class="text-primary font-label-bold text-label-bold">ADD TRIP</button>
+</div>
+</div>
+<!-- Wednesday Slot -->
+<div class="glass-card rounded-2xl p-5 shadow-[0px_8px_24px_rgba(0,0,0,0.04)] relative overflow-hidden border-l-4 border-l-secondary">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Wednesday</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mid-week Syncs</p>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            SUGGESTED
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl font-label-bold text-label-bold transition-transform active:scale-95">
+            11:30 AM
+          </button>
+<span class="font-body-sm text-body-sm text-tertiary font-semibold">Between Meetings</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-on-secondary-container bg-secondary-container p-2 rounded-lg">
+<span class="material-symbols-outlined text-[18px]">videocam</span>
+<p class="font-body-sm text-body-sm">45 min quiet cabin for calls</p>
+</div>
+</div>
+<!-- Business Ad/Tip Card -->
+<div class="relative rounded-2xl overflow-hidden h-48 group">
+<img alt="Business productivity in Waymo" class="w-full h-full object-cover" data-alt="A professional woman working on a thin laptop inside a sleek, spacious Waymo interior. The lighting is soft and natural, streaming through large panoramic windows showing a blurred modern cityscape. The aesthetic is clean, minimalist, and luxury-focused, with premium leather textures and a calm blue and white color palette representing the Waymo brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFn6fSPyKsD6G8pvOGEfQKvn_vph5RVR0SHcduDLhcKt0SCU5lHs6MS08_zqyh_My-ZftrbuNof-WrQEO2QNMkjVk3ABbdYXoWx1sp-QgBC8Ih8vMiFd9DaSPQtdbjL0VY6YBbRHF9vg2zq1Owyn1QHPbL0LJTenGH3y-VHDtUDnRx5Okb3lx1GJzIj_7a9lu9GOSE_rTeiiinCzs85v5dQS-4puJMjQxn0CKoE2wZqsxfwXznOmKFHV_Hb3wL0wkYwPt7f7PExFx9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-5">
+<h4 class="font-headline-lg-mobile text-white text-[18px] mb-1">Maximize Your Morning</h4>
+<p class="font-body-sm text-white/80">Connect to Waymo Wi-Fi and clear your inbox before the first meeting.</p>
+</div>
+</div>
+<!-- Thursday Slot -->
+<div class="glass-card rounded-2xl p-5 shadow-[0px_8px_24px_rgba(0,0,0,0.04)] relative overflow-hidden border-l-4 border-l-secondary">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Thursday</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Commute to HQ</p>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            SUGGESTED
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl font-label-bold text-label-bold">
+            8:45 AM
+          </button>
+<span class="font-body-sm text-body-sm text-tertiary font-semibold">Prioritize Early Start</span>
+</div>
+</div>
+</div>
+<!-- Actions Section -->
+<div class="mt-12 mb-8">
+<button class="w-full bg-[#0F172A] text-white py-4 rounded-2xl font-display font-bold shadow-lg transition-transform active:scale-[0.98]">
+        Save Schedule
+      </button>
+<button class="w-full mt-3 border-2 border-outline-variant text-on-surface-variant py-4 rounded-2xl font-display font-bold transition-colors hover:bg-surface-container">
+        Edit Recurring Locations
+      </button>
+</div>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 right-0 flex justify-around items-center pt-2 pb-6 px-4 bg-surface-container-lowest z-50 rounded-t-xl shadow-[0px_-4px_12px_rgba(0,0,0,0.04)]">
+<!-- Home -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</div>
+<!-- Vehicles -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-label-bold text-label-bold">Vehicles</span>
+</div>
+<!-- Business (Active) -->
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 scale-95 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-label-bold text-label-bold">Business</span>
+</div>
+<!-- Account -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-5 py-1 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-label-bold">Account</span>
+</div>
+</nav>
+</body></html>

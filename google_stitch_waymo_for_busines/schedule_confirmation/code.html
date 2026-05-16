@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waymo for Business - Schedule Confirmation</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .map-container {
+      mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed-dim": "#bec6e0",
+                  "surface-dim": "#d8dadc",
+                  "on-error-container": "#93000a",
+                  "inverse-surface": "#2d3133",
+                  "inverse-primary": "#adc6ff",
+                  "on-secondary": "#ffffff",
+                  "inverse-on-surface": "#eff1f3",
+                  "on-primary": "#ffffff",
+                  "on-primary-fixed-variant": "#004493",
+                  "on-background": "#191c1e",
+                  "surface-container-low": "#f2f4f6",
+                  "primary": "#0058bc",
+                  "surface": "#f7f9fb",
+                  "error-container": "#ffdad6",
+                  "tertiary-container": "#00855b",
+                  "outline": "#717786",
+                  "error": "#ba1a1a",
+                  "surface-container": "#eceef0",
+                  "surface-container-highest": "#e0e3e5",
+                  "on-primary-container": "#fefcff",
+                  "secondary-container": "#dae2fd",
+                  "on-surface-variant": "#414755",
+                  "on-tertiary-fixed": "#002113",
+                  "on-secondary-fixed-variant": "#3f465c",
+                  "on-primary-fixed": "#001a41",
+                  "on-secondary-fixed": "#131b2e",
+                  "surface-variant": "#e0e3e5",
+                  "background": "#f7f9fb",
+                  "primary-fixed": "#d8e2ff",
+                  "on-tertiary-container": "#f5fff6",
+                  "primary-container": "#0070eb",
+                  "tertiary-fixed-dim": "#4edea3",
+                  "on-error": "#ffffff",
+                  "secondary-fixed": "#dae2fd",
+                  "outline-variant": "#c1c6d7",
+                  "on-tertiary-fixed-variant": "#005236",
+                  "surface-tint": "#005bc1",
+                  "on-secondary-container": "#5c647a",
+                  "on-tertiary": "#ffffff",
+                  "tertiary": "#006947",
+                  "surface-container-lowest": "#ffffff",
+                  "primary-fixed-dim": "#adc6ff",
+                  "tertiary-fixed": "#6ffbbe",
+                  "surface-bright": "#f7f9fb",
+                  "secondary": "#565e74",
+                  "surface-container-high": "#e6e8ea",
+                  "on-surface": "#191c1e"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-sm": "16px",
+                  "container-padding": "24px",
+                  "unit": "8px",
+                  "gutter": "16px",
+                  "margin-lg": "32px"
+          },
+          "fontFamily": {
+                  "body-md": ["Plus Jakarta Sans"],
+                  "body-sm": ["Plus Jakarta Sans"],
+                  "headline-lg": ["Plus Jakarta Sans"],
+                  "display": ["Plus Jakarta Sans"],
+                  "headline-lg-mobile": ["Plus Jakarta Sans"],
+                  "label-bold": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-sm h-16 w-full bg-surface dark:bg-on-background fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container dark:hover:bg-inverse-surface rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+</button>
+<h1 class="font-display text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">Waymo for Business</h1>
+</div>
+<button class="p-2 hover:bg-surface-container dark:hover:bg-inverse-surface rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">notifications</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-16 pb-24 overflow-x-hidden">
+<!-- Hero Map Background (Visual Decor) -->
+<div class="absolute inset-0 h-[400px] z-0 overflow-hidden map-container">
+<img alt="Map of Los Angeles" class="w-full h-full object-cover opacity-50 grayscale-[0.3]" data-alt="A sophisticated digital map visualization of Los Angeles streets under soft daylight. The map features a minimalist aesthetic with a clean white and light grey palette, punctuated by subtle primary blue routes and markers. The overall mood is precise, professional, and calm, echoing a modern corporate mobility service." data-location="Los Angeles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJW_MzmA5_Eb4fKhioDJw8PvgzqAzwVy6ThBjUlnA4CpLKL7WgbYkeNiUh0U-tFb78-1BDeN8--aYdwjEr8N30iQODX7XrCBUzSfoFGw9ouVytQdn_pFAP9lwQ-kjLpEdoybxmZ6UoaB_pfAhs3GQeiDw8QZv9-xqkJTMcYwcG2FTSRDVEUjPodZkgbNo_lp_KJ4Q-1Ujf7HD8USjXtVq2e-wuwaehmkurO3q7imhVLYF4nU9yhri2xLYeK8aEG01noMqhZBl-qNQa"/>
+</div>
+<!-- Confirmation Content Layer -->
+<div class="relative z-10 px-container-padding pt-10 max-w-lg mx-auto">
+<!-- Success Indicator -->
+<div class="flex justify-center mb-6">
+<div class="bg-tertiary-container text-on-tertiary-container p-4 rounded-full shadow-lg">
+<span class="material-symbols-outlined !text-4xl" data-weight="fill">check_circle</span>
+</div>
+</div>
+<!-- Headline -->
+<div class="text-center mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Commute All Set</h2>
+<p class="font-body-md text-on-surface-variant">Your recurring rides are scheduled and company-paid.</p>
+</div>
+<!-- Summary Card (Bento Style) -->
+<div class="grid grid-cols-1 gap-4 mb-8">
+<!-- Active Schedule Details -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 shadow-[0px_8px_24px_rgba(0,0,0,0.04)] border border-surface-variant">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="inline-block bg-inverse-surface text-inverse-on-surface text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider mb-2">Billed to Acme Corp</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile">Daily Commute</h3>
+</div>
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+<!-- Trip Visualizer -->
+<div class="space-y-6 relative">
+<!-- Connecting Line -->
+<div class="absolute left-[11px] top-6 bottom-6 w-[2px] bg-outline-variant"></div>
+<!-- Pickup -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center border-4 border-surface-container-lowest">
+<div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+</div>
+<div>
+<p class="font-label-bold text-on-surface-variant uppercase tracking-tighter text-[10px]">Pickup • 8:30 AM</p>
+<p class="font-body-md font-semibold">11950 Wilshire Boulevard</p>
+</div>
+</div>
+<!-- Destination -->
+<div class="flex items-start gap-4 relative z-10">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-white text-[12px]" data-weight="fill">work</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface-variant uppercase tracking-tighter text-[10px]">Destination</p>
+<p class="font-body-md font-semibold">One World Trade Center (Work)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Meta Grid Info -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-[24px] shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">event_repeat</span>
+<p class="font-label-bold text-on-surface-variant text-[10px] uppercase">Frequency</p>
+<p class="font-body-md font-bold">Mon - Fri</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-[24px] shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">payments</span>
+<p class="font-label-bold text-on-surface-variant text-[10px] uppercase">Payment</p>
+<p class="font-body-md font-bold">Business Wallet</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline-lg-mobile shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+<span>Go to Home</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-transparent text-primary py-3 rounded-full font-body-md font-semibold hover:bg-surface-container transition-colors">
+          Manage Schedule
+        </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 right-0 flex justify-around items-center pt-2 pb-safe px-4 bg-surface-container-lowest dark:bg-inverse-surface shadow-[0px_-4px_12px_rgba(0,0,0,0.04)] z-50 rounded-t-xl h-20">
+<!-- Home Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</a>
+<!-- Vehicles Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">directions_car</span>
+<span class="font-label-bold text-label-bold">Vehicles</span>
+</a>
+<!-- Business Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-weight="fill">work</span>
+<span class="font-label-bold text-label-bold">Business</span>
+</a>
+<!-- Account Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-bold text-label-bold">Account</span>
+</a>
+</nav>
+</body></html>

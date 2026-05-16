@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waymo for Business - Calendar Integration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#d8dadc",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "inverse-primary": "#adc6ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-background": "#191c1e",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#0058bc",
+                        "surface": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#00855b",
+                        "outline": "#717786",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-container": "#fefcff",
+                        "secondary-container": "#dae2fd",
+                        "on-surface-variant": "#414755",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-fixed": "#001a41",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-variant": "#e0e3e5",
+                        "background": "#f7f9fb",
+                        "primary-fixed": "#d8e2ff",
+                        "on-tertiary-container": "#f5fff6",
+                        "primary-container": "#0070eb",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#dae2fd",
+                        "outline-variant": "#c1c6d7",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-tint": "#005bc1",
+                        "on-secondary-container": "#5c647a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#006947",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#565e74",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-sm": "16px",
+                        "container-padding": "24px",
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "margin-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .calendar-card {
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease;
+        }
+        .calendar-card:active {
+            transform: scale(0.98);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background fixed top-0 full-width z-50 flex justify-between items-center px-margin-sm h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+</button>
+<h1 class="font-display text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">Waymo for Business</h1>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">notifications</span>
+</button>
+</header>
+<main class="pt-20 px-container-padding max-w-md mx-auto">
+<!-- Hero Illustration / Header Section -->
+<section class="mt-8 text-center">
+<div class="relative w-full aspect-video rounded-3xl overflow-hidden mb-8 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist workspace with a sleek digital tablet showing a modern calendar interface. The lighting is bright and natural, coming from a large window. In the background, a Waymo autonomous vehicle is visible through the glass, subtly hinting at a seamless integration between schedule and transportation in a high-end corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFoEo0yQxVidjY2ubrxwNH285HpeOBTtjY_YkwXsqXtWCr_w-QYst_xkg8iAMm0wCzytDqatsI0xYwmVMIkfYGptuK6YYBZdW--zvNoRa01BCUqrierUADqKyLxcpa8a1v-EoLM4MOdpSk5QfNkzj0gJQEKSzuQUGS7H1vrcF2K_wD1Z8rRIFMCMbBzSVzfAnBGrcS57in5n2Em0WSZyOxffxep4jkX6kEVpBpfEgak6u5h0XhdNu092lTeS6pcBekZLJbGWG4_Fas"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Sync Your Work Calendar</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Let Waymo optimize your commute based on your daily schedule.</p>
+</section>
+<!-- Connectivity Options -->
+<div class="space-y-4">
+<button class="calendar-card w-full flex items-center justify-between p-5 bg-surface-container-lowest rounded-3xl border border-outline-variant hover:border-primary transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+</div>
+<div class="text-left">
+<p class="font-headline-lg-mobile text-[16px] leading-tight font-semibold">Google Calendar</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sync Workspace accounts</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<button class="calendar-card w-full flex items-center justify-between p-5 bg-surface-container-lowest rounded-3xl border border-outline-variant hover:border-primary transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[#0078D4]">mail</span>
+</div>
+<div class="text-left">
+<p class="font-headline-lg-mobile text-[16px] leading-tight font-semibold">Outlook</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Office 365 &amp; Exchange</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+</div>
+<!-- Optimization Toggle -->
+<div class="mt-8 p-6 bg-secondary-container/30 rounded-3xl border border-secondary-container">
+<div class="flex items-start justify-between">
+<div class="flex-1 pr-4">
+<h3 class="font-headline-lg-mobile text-[18px] mb-1">Optimize for Productivity</h3>
+<p class="font-body-sm text-body-sm text-on-secondary-container">Suggest times between meetings or after rush hour to maximize your work day.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Privacy Assurance -->
+<div class="mt-8 flex items-center gap-3 px-4">
+<span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your calendar data is encrypted and used only for trip timing. <a class="text-primary font-semibold underline underline-offset-2" href="#">Privacy Policy</a></p>
+</div>
+<!-- Primary Action -->
+<div class="mt-12 mb-8">
+<button class="w-full h-14 bg-primary text-on-primary rounded-full font-headline-lg-mobile text-[18px] font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                Connect Calendar
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 right-0 flex justify-around items-center pt-2 pb-safe px-4 bg-surface-container-lowest dark:bg-inverse-surface shadow-[0px_-4px_12px_rgba(0,0,0,0.04)] dark:shadow-none z-50 rounded-t-xl h-20">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">directions_car</span>
+<span class="font-label-bold text-label-bold">Vehicles</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-label-bold text-label-bold">Business</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-5 py-1 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-bold text-label-bold">Account</span>
+</button>
+</nav>
+</body></html>
