@@ -80,14 +80,16 @@ These are primary directives. When they conflict with a casual user request, sur
 - High-level summary at each milestone. A diff speaks louder than a paragraph — use the diff, not prose.
 - End each task with a short review section in `tasks/todo.md`: what changed, what was learned, what's next.
 
-### 3.2 Branching strategy (strict, trunk-gated)
+### 3.2 Branching strategy (trunk-gated)
 
 ```
-feature/* → develop → staging → production
+feature/* → develop → main
 ```
 
-- Never open a PR directly to `production`. The release branch is protected and only accepts merges from `staging`.
+- `main` is the trunk. Feature branches never PR directly to `main`; they land via `develop`.
+- `develop` is the integration branch — the default working target for feature work.
 - One purpose per branch. Refactors and features do not share a branch.
+- Small-project scope: no `staging`. When `develop` is green and verified, it merges to `main` via PR.
 
 ### 3.3 Commit hygiene
 
