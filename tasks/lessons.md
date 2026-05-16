@@ -17,4 +17,14 @@ becomes outdated.
 
 ---
 
-_(no lessons captured yet — first build still in progress)_
+### Never reference `React.X` globals — use named type imports
+**Trigger:** about to write `React.FormEvent`, `React.ReactNode`,
+`React.MouseEvent`, etc. inside a component file.
+**Correction:** `import { type FormEvent, type ReactNode } from 'react'` and
+use the bare names. The `React` global is undefined under the new JSX
+transform + `react-in-jsx-scope: off` ESLint config we use, so the global
+reference is a hard lint error.
+**Reason:** `connect.tsx` shipped twice with `React.FormEvent` /
+`React.ReactNode` and broke lint each time. Cheaper to import the named
+types from `react` than to retroactively fix lint failures.
+**Captured:** 2026-05-16
