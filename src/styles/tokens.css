@@ -1,0 +1,74 @@
+/* Design tokens — Ambient Mobility palette, sourced from
+   google_stitch_waymo_for_busines/ambient_mobility/DESIGN.md.
+   Values are space-separated RGB triplets so Tailwind's `<alpha-value>`
+   pattern works (`rgb(var(--color-primary) / 0.5)`). */
+
+:root {
+  /* Surfaces */
+  --color-surface: 247 249 251;
+  --color-surface-dim: 216 218 220;
+  --color-surface-bright: 247 249 251;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 242 244 246;
+  --color-surface-container: 236 238 240;
+  --color-surface-container-high: 230 232 234;
+  --color-surface-container-highest: 224 227 229;
+  --color-on-surface: 25 28 30;
+  --color-on-surface-variant: 65 71 85;
+  --color-inverse-surface: 45 49 51;
+  --color-inverse-on-surface: 239 241 243;
+  --color-outline: 113 119 134;
+  --color-outline-variant: 193 198 215;
+  --color-surface-tint: 0 91 193;
+  --color-surface-variant: 224 227 229;
+  --color-background: 247 249 251;
+  --color-on-background: 25 28 30;
+
+  /* Primary */
+  --color-primary: 0 88 188;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 0 112 235;
+  --color-on-primary-container: 254 252 255;
+  --color-inverse-primary: 173 198 255;
+  --color-primary-fixed: 216 226 255;
+  --color-primary-fixed-dim: 173 198 255;
+  --color-on-primary-fixed: 0 26 65;
+  --color-on-primary-fixed-variant: 0 68 147;
+
+  /* Secondary (business slate) */
+  --color-secondary: 86 94 116;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 218 226 253;
+  --color-on-secondary-container: 92 100 122;
+  --color-secondary-fixed: 218 226 253;
+  --color-secondary-fixed-dim: 190 198 224;
+  --color-on-secondary-fixed: 19 27 46;
+  --color-on-secondary-fixed-variant: 63 70 92;
+
+  /* Tertiary (success / green) */
+  --color-tertiary: 0 105 71;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 0 133 91;
+  --color-on-tertiary-container: 245 255 246;
+  --color-tertiary-fixed: 111 251 190;
+  --color-tertiary-fixed-dim: 78 222 163;
+  --color-on-tertiary-fixed: 0 33 19;
+  --color-on-tertiary-fixed-variant: 0 82 54;
+
+  /* Error */
+  --color-error: 186 26 26;
+  --color-on-error: 255 255 255;
+  --color-error-container: 255 218 214;
+  --color-on-error-container: 147 0 10;
+
+  /* Business action — promoted from the hardcoded #0F172A literal
+     in commute_scheduler/code.html:240 (deep corporate slate). */
+  --color-business-action: 15 23 42;
+}
+
+/* Dark theme override slot — reserved for future work.
+   Keep selectors here so components never reference hex codes. */
+[data-theme='dark'],
+.dark {
+  /* TODO: dark palette pending design pass */
+}

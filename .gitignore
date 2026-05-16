@@ -1,2 +1,15 @@
 # macOS
 .DS_Store
+
+# Node
+node_modules
+*.log
+.env
+.env.local
+
+# Build artifacts
+dist
+dev-dist
+coverage
+.vite
+.eslintcache
