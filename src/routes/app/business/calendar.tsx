@@ -102,17 +102,15 @@ function ProviderRow({
           {active ? 'Connected · updated just now' : 'Not connected'}
         </p>
       </div>
-      <button
-        type="button"
+      <Button
+        size="md"
+        variant={active ? 'secondary' : 'primary'}
+        fullWidth={false}
         onClick={active ? onDisconnect : onConnect}
-        className={`shrink-0 rounded-full px-4 py-2 text-label-bold transition-colors ${
-          active
-            ? 'border border-outline-variant text-on-surface-variant'
-            : 'bg-primary text-on-primary'
-        }`}
+        className="shrink-0"
       >
         {active ? 'Disconnect' : 'Connect'}
-      </button>
+      </Button>
     </div>
   );
 }

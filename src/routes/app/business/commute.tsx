@@ -105,7 +105,7 @@ function DaySlot({
           <button
             type="button"
             onClick={onPickTime}
-            className="font-label-bold uppercase text-primary"
+            className="-mx-3 -my-2 rounded-md px-3 py-2 font-label-bold uppercase text-primary transition-opacity active:opacity-60"
           >
             Add trip
           </button>
@@ -144,13 +144,9 @@ function DaySlot({
         )}
       </div>
       <div className="mt-4 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={onPickTime}
-          className="rounded-xl bg-primary px-4 py-2 font-label-bold text-on-primary transition-transform active:scale-95"
-        >
+        <Button size="md" fullWidth={false} onClick={onPickTime}>
           {slot.suggestedTime}
-        </button>
+        </Button>
         {slot.context ? (
           <span className="text-body-sm font-semibold text-tertiary">
             {slot.context}

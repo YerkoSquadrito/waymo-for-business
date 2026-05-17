@@ -41,7 +41,7 @@ export function BottomNavBar() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-around bg-surface-container-lowest px-4 pt-2 pb-safe shadow-nav"
+      className="sticky bottom-0 z-30 mt-auto flex items-center justify-around bg-surface-container-lowest px-2 pt-2 pb-safe shadow-nav"
       aria-label="Primary"
     >
       <LayoutGroup id="bottom-nav">
@@ -52,18 +52,25 @@ export function BottomNavBar() {
               key={item.to}
               to={item.to}
               aria-current={isActive ? 'page' : undefined}
-              className="relative flex items-center justify-center px-2 py-1 outline-none"
+              className="relative flex min-w-0 flex-1 items-center justify-center px-1 py-1 outline-none"
             >
               <div
                 className={cn(
-                  'relative z-10 flex items-center justify-center gap-2 rounded-full px-4 py-1.5 transition-colors',
+                  'relative z-10 flex items-center justify-center gap-1.5 rounded-full py-1.5 transition-colors',
                   isActive
-                    ? 'text-on-secondary-container'
-                    : 'text-on-surface-variant',
+                    ? 'px-4 text-on-secondary-container'
+                    : 'px-2 text-on-surface-variant',
                 )}
               >
                 <Icon name={item.icon} filled={isActive} size={22} />
-                <span className="text-label-bold">{item.label}</span>
+                <span
+                  className={cn(
+                    'text-label-bold',
+                    isActive ? 'inline' : 'sr-only',
+                  )}
+                >
+                  {item.label}
+                </span>
               </div>
               {isActive ? (
                 <motion.div

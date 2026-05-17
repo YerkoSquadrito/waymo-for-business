@@ -16,8 +16,9 @@ type Props = {
 };
 
 /**
- * Mobile shell. Composes TopAppBar + scrollable main + BottomNavBar with
- * the correct safe-area math so screens never have to re-implement layout.
+ * Mobile shell. Composes TopAppBar + scrollable main + BottomNavBar.
+ * Width-constraint and desktop chrome are handled by <DeviceFrame> at the
+ * router root, so this component is purely about screen-level layout.
  * Screens that need full-bleed map UI can hide the top bar.
  */
 export function PageScaffold({
@@ -30,15 +31,15 @@ export function PageScaffold({
   className,
 }: Props) {
   return (
-    <div className="mx-auto flex min-h-dvh max-w-mobile flex-col bg-background">
+    <div className="flex min-h-dvh flex-1 flex-col md:min-h-0">
       {hideTopBar ? null : (
         <TopAppBar title={title} leading={leading} trailing={trailing} />
       )}
       <main
         className={cn(
           'flex-1 px-container-padding',
-          hideTopBar ? 'pt-0' : 'pt-20',
-          hideBottomNav ? 'pb-margin-lg' : 'pb-32',
+          hideTopBar ? 'pt-2' : 'pt-4',
+          hideBottomNav ? 'pb-margin-lg' : 'pb-6',
           className,
         )}
       >
