@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/Button';
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
-    <main className="mx-auto flex min-h-dvh max-w-mobile flex-col items-stretch justify-between bg-background px-container-padding py-margin-lg">
+    <main className="flex min-h-dvh flex-1 flex-col items-stretch justify-between bg-background px-container-padding py-margin-lg md:min-h-0">
       <header className="pt-margin-lg">
         <p className="font-label-bold uppercase tracking-[0.05em] text-primary">
           Waymo for Business
@@ -21,18 +23,15 @@ export default function Landing() {
       </div>
 
       <div className="flex flex-col gap-3 pb-safe">
-        <Link
-          to="/app/home"
-          className="flex h-14 items-center justify-center rounded-full bg-primary text-on-primary text-headline-lg-mobile font-semibold shadow-card active:scale-[0.98] transition-transform"
-        >
+        <Button onClick={() => navigate('/app/home')}>
           Open the prototype
-        </Link>
-        <Link
-          to="/app/business/connect"
-          className="flex h-14 items-center justify-center rounded-full border-2 border-outline-variant text-on-surface-variant text-body-md font-semibold"
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => navigate('/app/business/connect')}
         >
           I&apos;m setting up at work
-        </Link>
+        </Button>
       </div>
     </main>
   );

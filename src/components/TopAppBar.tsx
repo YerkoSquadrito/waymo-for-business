@@ -10,17 +10,19 @@ type Props = {
 };
 
 /**
- * 64px fixed top bar. Matches the Stitch pattern across all four reference
- * screens, with two corrections from the UI audit:
+ * 64px sticky top bar. Matches the Stitch pattern across all four reference
+ * screens, with corrections from the UI audit:
  *   - Title uses on-surface, not primary (real Waymo neutralizes the header).
  *   - The decorative notifications bell is removed by default; pass an
  *     explicit `trailing` slot if a screen genuinely needs an action there.
+ *   - `sticky` (not `fixed`) so the bar stays within the phone bezel on
+ *     desktop instead of stretching across the full viewport.
  */
 export function TopAppBar({ title, leading, trailing, className }: Props) {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 flex h-16 items-center justify-between bg-surface px-margin-sm',
+        'sticky top-0 z-30 flex h-16 items-center justify-between bg-surface px-margin-sm',
         className,
       )}
     >

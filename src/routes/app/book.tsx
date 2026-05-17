@@ -41,7 +41,7 @@ export default function Book() {
   };
 
   return (
-    <div className="relative mx-auto flex min-h-dvh max-w-mobile flex-col bg-surface-container-low">
+    <div className="relative flex min-h-dvh flex-1 flex-col bg-surface-container-low md:min-h-0">
       <div className="absolute inset-0">
         <MapMock />
       </div>
@@ -51,14 +51,14 @@ export default function Book() {
           type="button"
           onClick={() => navigate('/app/home')}
           aria-label="Back"
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-lowest shadow-float"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-surface-container-lowest shadow-float transition-transform active:scale-[0.96]"
         >
           <Icon name="arrow_back" className="text-on-surface" />
         </button>
         <button
           type="button"
           aria-label="Center on me"
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-lowest shadow-float"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-surface-container-lowest shadow-float transition-transform active:scale-[0.96]"
         >
           <Icon name="my_location" className="text-on-surface" />
         </button>
@@ -125,7 +125,10 @@ function ReviewSheet({
         <Chip variant="status-info" leading={<Icon name="schedule" size={14} />}>
           DEPART AS SOON AS POSSIBLE
         </Chip>
-        <button type="button" className="text-label-bold uppercase text-primary">
+        <button
+          type="button"
+          className="-mx-3 -my-2 rounded-md px-3 py-2 text-label-bold uppercase text-primary transition-opacity active:opacity-60"
+        >
           Change
         </button>
       </div>

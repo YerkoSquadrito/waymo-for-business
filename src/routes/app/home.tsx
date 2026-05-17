@@ -54,11 +54,9 @@ export default function Home() {
           ))}
           <button
             type="button"
-            className="shrink-0 rounded-full border-2 border-dashed border-outline-variant px-3 py-1 text-label-bold text-on-surface-variant"
+            className="inline-flex h-9 shrink-0 items-center gap-1 rounded-full border-2 border-dashed border-outline-variant px-4 text-label-bold text-on-surface-variant transition-colors hover:bg-surface-container-low active:bg-surface-container"
           >
-            <span className="inline-flex items-center gap-1">
-              <Icon name="add" size={16} /> Add place
-            </span>
+            <Icon name="add" size={16} /> Add place
           </button>
         </div>
       </section>
@@ -119,7 +117,7 @@ export default function Home() {
                     type="button"
                     aria-label={`Save ${dest.name}`}
                     onClick={(e) => e.stopPropagation()}
-                    className="text-on-surface-variant"
+                    className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-surface-container-low active:bg-surface-container"
                   >
                     <Icon name="star_outline" />
                   </button>
